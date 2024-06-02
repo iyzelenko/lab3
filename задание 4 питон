@@ -1,0 +1,17 @@
+import math
+import random
+
+def series_value(x):
+    k = 1
+    result = 0
+    term = 1  # Начальное значение для входа в цикл
+    while abs(term) >= 1e-6:
+        term = ((-1)**k) / (math.sin(k*x) + 20 + k**2)
+        result += term
+        k += 1
+    return result
+
+x_value = random.randint(1, 10)
+
+result = series_value(x_value)
+print("Значение ряда для x =", x_value, "с точностью до 10^(-6):", result)
